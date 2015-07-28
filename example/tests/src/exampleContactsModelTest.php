@@ -7,10 +7,8 @@ class exampleContactsModelTest extends \PHPUnit_Framework_TestCase {
 
 
     /**
-     *
-     * @param array $definition Definition array to be combined with data array
-     * @param array $dataArray Definition array to be combined with data array
-     *
+     * Static instance of ContactsDataPool
+     * 
      * @return \Example\tests\files\ContactsDataPool
      */
     public function getDataPool() {

@@ -1,1 +1,1 @@
-../vendor/bin/phpmetrics --report-html=../builds/phpmetrics.html ../src/
+../vendor/bin/phpmetrics --report-html=../build/phpmetrics.html ../src/

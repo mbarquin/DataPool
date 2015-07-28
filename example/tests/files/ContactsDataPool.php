@@ -13,7 +13,7 @@
 namespace Example\tests\files;
 
 /**
- * Domains datapool file for Testing pourposes
+ * Contacts datapool file for Testing pourposes
  */
 class ContactsDataPool extends \DataPool\DataPool
 {
