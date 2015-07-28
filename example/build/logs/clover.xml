@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1437468806">
+  <project timestamp="1437468806">
+    <package name="Example\src">
+      <file name="C:\xampp\htdocs\DataPool\example\src/exampleContactsModel.php">
+        <class name="exampleContactsModel" namespace="Example\src">
+          <metrics methods="1" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="13" coveredstatements="9" elements="14" coveredelements="9"/>
+        </class>
+        <line num="33" type="method" name="insert" crap="9.86" count="1"/>
+        <line num="34" type="stmt" count="1"/>
+        <line num="35" type="stmt" count="0"/>
+        <line num="38" type="stmt" count="1"/>
+        <line num="39" type="stmt" count="1"/>
+        <line num="40" type="stmt" count="0"/>
+        <line num="42" type="stmt" count="1"/>
+        <line num="43" type="stmt" count="0"/>
+        <line num="47" type="stmt" count="1"/>
+        <line num="48" type="stmt" count="1"/>
+        <line num="49" type="stmt" count="1"/>
+        <line num="50" type="stmt" count="0"/>
+        <line num="53" type="stmt" count="1"/>
+        <line num="56" type="stmt" count="1"/>
+        <metrics loc="57" ncloc="27" classes="1" methods="1" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="13" coveredstatements="9" elements="14" coveredelements="9"/>
+      </file>
+    </package>
+    <metrics files="1" loc="57" ncloc="27" classes="1" methods="1" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="13" coveredstatements="9" elements="14" coveredelements="9"/>
+  </project>
+</coverage>
