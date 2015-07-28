@@ -1,0 +1,14 @@
+{
+    "name": "mbarquin/DataPool",
+    "description": "Tests data provider",
+    "require": {
+        "php": ">=5.3",
+        "phpunit/phpunit": "4.7.*",
+        "pdepend/pdepend" : "@stable",
+        "Halleck45/PhpMetrics" : "@stable"
+
+    },
+    "autoload": {
+        "psr-4": { "DataPool\\" : "src/", "TestsDataPool\\" : "tests/", "Example\\" : "example/" }
+    }
+}

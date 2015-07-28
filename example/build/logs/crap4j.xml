@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<crap_result>
+  <project/>
+  <timestamp>2015-07-21 10:53:26</timestamp>
+  <stats>
+    <name>Method Crap Stats</name>
+    <methodCount>1</methodCount>
+    <crapMethodCount>0</crapMethodCount>
+    <crapLoad>0</crapLoad>
+    <totalCrap>9.86</totalCrap>
+    <crapMethodPercent>0</crapMethodPercent>
+  </stats>
+  <methods>
+    <method>
+      <package>Example\src</package>
+      <className>exampleContactsModel</className>
+      <methodName>insert</methodName>
+      <methodSignature>insert($regArray)</methodSignature>
+      <fullMethod>insert($regArray)</fullMethod>
+      <crap>9.86</crap>
+      <complexity>8</complexity>
+      <coverage>69.23</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+  </methods>
+</crap_result>

@@ -1,0 +1,1 @@
+../vendor/bin/pdepend --summary-xml=../build/pdepend.xml --jdepend-chart=../build/jdepend.svg --overview-pyramid=../build/pyramid.svg ../src
