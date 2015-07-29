@@ -83,7 +83,7 @@ class DataPoolTest extends \PHPUnit_Framework_TestCase {
         $dataArray  = array('first', 'secod', 'third');
 
         $dataPool   = $this->getDataPool($definition, $dataArray);
-        
+
         $data       = $dataPool->getData(0);
         $this->assertAttributeCount(1, 'dataArray', $dataPool);
         $this->assertCount(3, $data);
@@ -329,15 +329,38 @@ class DataPoolTest extends \PHPUnit_Framework_TestCase {
         $dataPool  = $this->getDataPool();
         $this->assertEquals(3, $dataPool->countRowsBy('VALUE1', '.1'));
         $this->assertEquals(1, $dataPool->countRowsBy('VALUE2', '2.'));
-        
+
     }
 
-
-    public function testGetRowsByIndex() {
+    /**
+     * @depends test__construct
+     */
+    public function testGetRowsByIndexIndexed() {
         $dataPool  = $this->getDataPool();
-        $this->assertCount(3, $dataPool->getRowsByIndex('Tes'));
+        $arrResult = $dataPool->getRowsByIndex('Tes');
+        $this->assertCount(3, $arrResult);
+        $this->assertArrayHasKey('Test_2', $arrResult);
     }
-    
+
+    /**
+     * @depends test__construct
+     */
+    public function testGetRowsByIndexNotIndexed() {
+        $dataPool  = $this->getDataPool();
+        $arrResult = $dataPool->getRowsByIndex('Tes', false);
+        $this->assertCount(3, $arrResult);
+        $this->assertArrayNotHasKey('Test_2', $arrResult);
+        $this->assertEquals('2.1', $arrResult[1][0]);
+    }
+
+    /**
+     * @depends test__construct
+     */
+    public function testGetRowsByIndexNumeric() {
+        $dataPool  = new \DataPool\DataPool(array('a'), array(array(53), array(23), array(53)));
+        $arrResult = $dataPool->getRowsByIndex(2);
+        $this->assertCount(1, $arrResult);
+    }
 
     /**
      * @depends test__construct
