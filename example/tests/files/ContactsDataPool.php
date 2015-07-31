@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Domains datapool file for Testing pourposes
  *
@@ -10,23 +11,26 @@
  * @author     Moises Barquin <moises.barquin@gmail.com>
  * @version    SVN: $Id$
  */
+
 namespace Example\tests\files;
 
 /**
  * Contacts datapool file for Testing pourposes
  */
-class ContactsDataPool extends \DataPool\DataPool
-{
+class ContactsDataPool extends \DataPool\DataPool {
 
     /**
-     * @var array Datapool definition
+     * @var array Datapoolm fields definition to be merged with data
      */
     protected $definition = array(
-            'name',
-            'surname',
-            'phone'
-        );
+        'name',
+        'surname',
+        'phone'
+    );
 
+    /**
+     * @var array Data array to be merged with definition and returned to tests 
+     */
     public $dataArray = array(
         'Test1' => array('Jack', 'Travis', '555999666'),
         'Test2' => array('Mathew', 'Jones', '555888555'),
@@ -34,5 +38,4 @@ class ContactsDataPool extends \DataPool\DataPool
         'PhoneToLong' => array('Gregor', 'Jones', '5550005518899')
     );
 
-}// End Class
-
+}
