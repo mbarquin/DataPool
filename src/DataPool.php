@@ -114,24 +114,10 @@ class DataPool extends \DataPool\implement\DataPoolImplements
      */
     protected function getRowsByIndexCumul(&$return, $key, $index, $indexedReturn) {
         if($indexedReturn === true) {
-            $return[$key] = $this->dataArray[$index];
+            $return[$key] = $this->combineReturn($index);
         } else {
-            $return[] = $this->dataArray[$index];
+            $return[]     = $this->combineReturn($index);
         }
-    }
-    
-    /**
-     * Creates data array to be returned
-     * 
-     * @param mixed $position Index in array
-     * 
-     * @return array
-     */
-    protected function composeReturn($position) {
-        if($this->getReturnArray() === true) {
-            return array(array_combine($this->definition, $this->dataArray[$position]));
-        }
-        return array_combine($this->definition, $this->dataArray[$position]);
     }
     
     
