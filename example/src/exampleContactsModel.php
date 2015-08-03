@@ -22,7 +22,13 @@ class exampleContactsModel
      */
     private $data = array();
 
-
+    /**
+     * Resets private data array
+     */
+    public function reset() {
+        $this->data = array();
+    }
+    
     /**
      * Emulates a validation and insert function
      *
@@ -50,9 +56,9 @@ class exampleContactsModel
             return false;
         }
 
-        $data[] = $regArray;
+        $this->data[] = $regArray;
 
         // Returns register ID
-        return count($data);
+        return count($this->data);
     }
 }

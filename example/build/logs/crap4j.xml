@@ -1,26 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <crap_result>
   <project/>
-  <timestamp>2015-07-30 20:43:45</timestamp>
+  <timestamp>2015-08-02 23:04:51</timestamp>
   <stats>
     <name>Method Crap Stats</name>
-    <methodCount>1</methodCount>
-    <crapMethodCount>0</crapMethodCount>
-    <crapLoad>0</crapLoad>
-    <totalCrap>29.24</totalCrap>
-    <crapMethodPercent>0</crapMethodPercent>
+    <methodCount>2</methodCount>
+    <crapMethodCount>1</crapMethodCount>
+    <crapLoad>8</crapLoad>
+    <totalCrap>74</totalCrap>
+    <crapMethodPercent>50</crapMethodPercent>
   </stats>
   <methods>
+    <method>
+      <package>Example\src</package>
+      <className>exampleContactsModel</className>
+      <methodName>reset</methodName>
+      <methodSignature>reset()</methodSignature>
+      <fullMethod>reset()</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
     <method>
       <package>Example\src</package>
       <className>exampleContactsModel</className>
       <methodName>insert</methodName>
       <methodSignature>insert($regArray)</methodSignature>
       <fullMethod>insert($regArray)</fullMethod>
-      <crap>29.24</crap>
+      <crap>72</crap>
       <complexity>8</complexity>
-      <coverage>30.77</coverage>
-      <crapLoad>0</crapLoad>
+      <coverage>0</coverage>
+      <crapLoad>8</crapLoad>
     </method>
   </methods>
 </crap_result>

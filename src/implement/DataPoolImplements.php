@@ -340,10 +340,47 @@ abstract class DataPoolImplements implements \Iterator, \Countable, \ArrayAccess
         if ($index === false) {
             return null;
         }
-        return isset($this->dataArray[$index]) ? $this->dataArray[$index] : null;
+        if (isset($this->dataArray[$index])) {
+            return $this->composeReturn($index);
+        }else{
+            return null;
+        }
     }
     
+    /**
+     * Creates data array to be returned
+     * 
+     * @param mixed $position Index in array
+     * 
+     * @return array
+     */
+    protected function composeReturn($position) {
+        if($this->getReturnArray() === true) {
+            if($this->returnIndexes===true) {
+                return array(
+                    $this->arrKeys[$position] => $this->combineReturn($position)
+                );
+            }
+            return array($this->combineReturn($position));
+        }
+        return $this->combineReturn($position);
+    }
+    
+    /**
+     * Merges data with index array if necessary
+     * 
+     * @param type $position
+     * @return type
+     */
+    protected function combineReturn($position){
+        if($this->returnIndexes===true) {
+            return array_combine($this->definition, $this->dataArray[$position]);
+        } else {
+            return $this->dataArray[$position];
+        }
+    }
 
+    
     /**
      * Gets index position on internal array
      *

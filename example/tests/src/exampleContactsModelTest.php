@@ -21,31 +21,37 @@ class exampleContactsModelTest extends \PHPUnit_Framework_TestCase {
         }
         // Avoid mixing behaviors during tests
         self::$dataPool->setReturnArray(false);
-        self::$dataPool->setReturnIndexes(true);
+        self::$dataPool->setReturnIndexes(false);
         
         return self::$dataPool;
     }
 
-    public function testOneInsertOK() {
-        $dataPool = $this->getDataPool();
-        $contModel = new \Example\src\exampleContactsModel();
-
+    /**
+     * @depends testOneInsertOK
+     */
+    public function testOneInsertOKAndReset() {
+        $dataPool        = $this->getDataPool();
+        $contModel       = new \Example\src\exampleContactsModel();
         $testInsertArray = $dataPool['Test1'];
-        var_dump($testInsertArray);
+        
         unset($testInsertArray['result']);
 
         $result = $contModel->insert($testInsertArray);
-
         $this->assertTrue(is_integer($result));
+        $this->assertAttributeCount(1, 'data', $contModel);
+        $contModel->reset();
+        $this->assertAttributeCount(0, 'data', $contModel);
     }
-
+    
     /**
      * @dataProvider getDataPool
      */
-    public function pureDataProviderInsert($name, $surname, $phone, $expected) {
-        $reg['name'] = $name;
+    public function testPureDataProviderInsert($name, $surname, $phone, $expected) {
+        $contModel      = new \Example\src\exampleContactsModel();
+        
+        $reg['name']    = $name;
         $reg['surname'] = $surname;
-        $reg['phone'] = $phone;
+        $reg['phone']   = $phone;
 
         $result = $contModel->insert($reg);
         if ($result === false) {
