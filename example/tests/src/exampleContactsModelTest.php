@@ -26,18 +26,19 @@ class exampleContactsModelTest extends \PHPUnit_Framework_TestCase {
         return self::$dataPool;
     }
 
-    /**
-     * @depends testOneInsertOK
-     */
     public function testOneInsertOKAndReset() {
         $dataPool        = $this->getDataPool();
+        $dataPool->setReturnIndexes(TRUE);
+        
         $contModel       = new \Example\src\exampleContactsModel();
         $testInsertArray = $dataPool['Test1'];
+        
+        $expected        = $testInsertArray['result'];
         
         unset($testInsertArray['result']);
 
         $result = $contModel->insert($testInsertArray);
-        $this->assertTrue(is_integer($result));
+        $this->assertEquals($result, $expected);
         $this->assertAttributeCount(1, 'data', $contModel);
         $contModel->reset();
         $this->assertAttributeCount(0, 'data', $contModel);
@@ -65,14 +66,14 @@ class exampleContactsModelTest extends \PHPUnit_Framework_TestCase {
         $dataPool = $this->getDataPool();
         $dataPool->setReturnArray(true);
         $dataPool->setReturnIndexes(true);
-        
-        return $dataPool;
+        var_dump($dataPool->getRowsByIndex('Test'));
+        return $dataPool->getRowsByIndex('Test');
     }
     
     /**
      * @dataProvider getDataPoolAsArray
      */
-    public function arrayDataProviderInsert($regData) {
+    public function testArrayDataProviderInsert($regData) {
         $expected = $regData['result'];
         unset($regData['result']);
 
@@ -83,5 +84,7 @@ class exampleContactsModelTest extends \PHPUnit_Framework_TestCase {
             $this->assertTrue(is_integer($result));
         }
     }
+    
+    
 
 }

@@ -25,7 +25,8 @@ class ContactsDataPool extends \DataPool\DataPool {
     protected $definition = array(
         'name',
         'surname',
-        'phone'
+        'phone',
+        'result'
     );
 
     /**
@@ -34,8 +35,8 @@ class ContactsDataPool extends \DataPool\DataPool {
     public $dataArray = array(
         'Test1' => array('Jack', 'Travis', '555999666', true),
         'Test2' => array('Mathew', 'Jones', '555888555', true),
-        'NameSurnameEmpty' => array('', '', '555666555', false),
-        'PhoneToLong' => array('Gregor', 'Jones', '5550005518899', false)
+        'Test3.NameSurnameEmpty' => array('', '', '555666555', false),
+        'Case1.PhoneToLong' => array('Gregor', 'Jones', '5550005518899', false)
     );
 
 }
