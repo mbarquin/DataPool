@@ -85,17 +85,16 @@ class DataPool extends \DataPool\implement\DataPoolImplements
      * Return array of rows, the row index must contain the 
      *
      * @param mixed   $value   Index Value to be searched
-     * @param boolean $indexedReturn Sets if returned array is indexed with test index
      * 
      * @return array
      */
-    public function getRowsByIndex($value, $indexedReturn=true) {
+    public function getRowsByIndex($value) {
         $return = array();
         foreach($this->arrKeys as $index => $key) {
             if (is_string($key) === true && strpos($key, $value) !== false) {
-                $this->getRowsByIndexCumul($return, $key, $index, $indexedReturn);
+                $this->getRowsByIndexCumul($return, $key, $index);
             } elseif ($key === $value) {
-                $this->getRowsByIndexCumul($return, $key, $index, $indexedReturn);
+                $this->getRowsByIndexCumul($return, $key, $index);
             }                
         }
         return $return;
@@ -108,12 +107,11 @@ class DataPool extends \DataPool\implement\DataPoolImplements
      * @param array $return        getRowsByIndex Returned array by reference
      * @param mixed $key           Indexation key
      * @param mixed $index         Position on dataArray
-     * @param bool  $indexedReturn If return array must be indexed or not
      * 
      * @return void
      */
-    protected function getRowsByIndexCumul(&$return, $key, $index, $indexedReturn) {
-        if($indexedReturn === true) {
+    protected function getRowsByIndexCumul(&$return, $key, $index) {
+        if($this->returnIndexes === true) {
             $return[$key] = $this->combineReturn($index);
         } else {
             $return[]     = $this->combineReturn($index);
