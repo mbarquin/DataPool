@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <crap_result>
   <project/>
-  <timestamp>2015-08-03 21:15:57</timestamp>
+  <timestamp>2015-08-06 20:35:34</timestamp>
   <stats>
     <name>Method Crap Stats</name>
     <methodCount>2</methodCount>
-    <crapMethodCount>0</crapMethodCount>
-    <crapLoad>0</crapLoad>
-    <totalCrap>9.23</totalCrap>
-    <crapMethodPercent>0</crapMethodPercent>
+    <crapMethodCount>1</crapMethodCount>
+    <crapLoad>8</crapLoad>
+    <totalCrap>74</totalCrap>
+    <crapMethodPercent>50</crapMethodPercent>
   </stats>
   <methods>
     <method>
@@ -17,9 +17,9 @@
       <methodName>reset</methodName>
       <methodSignature>reset()</methodSignature>
       <fullMethod>reset()</fullMethod>
-      <crap>1</crap>
+      <crap>2</crap>
       <complexity>1</complexity>
-      <coverage>100</coverage>
+      <coverage>0</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -28,10 +28,10 @@
       <methodName>insert</methodName>
       <methodSignature>insert($regArray)</methodSignature>
       <fullMethod>insert($regArray)</fullMethod>
-      <crap>8.23</crap>
+      <crap>72</crap>
       <complexity>8</complexity>
-      <coverage>84.62</coverage>
-      <crapLoad>0</crapLoad>
+      <coverage>0</coverage>
+      <crapLoad>8</crapLoad>
     </method>
   </methods>
 </crap_result>

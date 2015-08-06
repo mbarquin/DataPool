@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <crap_result>
   <project/>
-  <timestamp>2015-08-06 17:55:10</timestamp>
+  <timestamp>2015-08-06 20:37:22</timestamp>
   <stats>
     <name>Method Crap Stats</name>
     <methodCount>32</methodCount>
     <crapMethodCount>0</crapMethodCount>
     <crapLoad>0</crapLoad>
-    <totalCrap>63.33</totalCrap>
+    <totalCrap>61</totalCrap>
     <crapMethodPercent>0</crapMethodPercent>
   </stats>
   <methods>
@@ -160,9 +160,9 @@
       <methodName>offsetExists</methodName>
       <methodSignature>offsetExists($offset)</methodSignature>
       <fullMethod>offsetExists($offset)</fullMethod>
-      <crap>2</crap>
+      <crap>1</crap>
       <complexity>1</complexity>
-      <coverage>0</coverage>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -171,9 +171,9 @@
       <methodName>offsetUnset</methodName>
       <methodSignature>offsetUnset($offset)</methodSignature>
       <fullMethod>offsetUnset($offset)</fullMethod>
-      <crap>2</crap>
+      <crap>1</crap>
       <complexity>1</complexity>
-      <coverage>0</coverage>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -182,9 +182,9 @@
       <methodName>offsetGet</methodName>
       <methodSignature>offsetGet($offset)</methodSignature>
       <fullMethod>offsetGet($offset)</fullMethod>
-      <crap>3.33</crap>
+      <crap>3</crap>
       <complexity>3</complexity>
-      <coverage>66.67</coverage>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
