@@ -45,4 +45,6 @@ nbproject
 .project
 .settings
 
-vendor
+/vendor/
+/PHPDoc/
+/bin/
