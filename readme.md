@@ -14,7 +14,7 @@ Installation
 You can install the component in the following ways:
 
 * Use the official Github repository (https://github.com/mbarquin/DataPool)
-* Use composer
+* Use composer : 
 
 Usage
 -----
@@ -117,4 +117,4 @@ In our test case:
             }
         }
     }
-
+ 
