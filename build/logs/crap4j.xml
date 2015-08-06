@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <crap_result>
   <project/>
-  <timestamp>2015-07-29 20:26:25</timestamp>
+  <timestamp>2015-08-06 17:55:10</timestamp>
   <stats>
     <name>Method Crap Stats</name>
-    <methodCount>31</methodCount>
+    <methodCount>32</methodCount>
     <crapMethodCount>0</crapMethodCount>
     <crapLoad>0</crapLoad>
-    <totalCrap>59</totalCrap>
+    <totalCrap>63.33</totalCrap>
     <crapMethodPercent>0</crapMethodPercent>
   </stats>
   <methods>
@@ -48,8 +48,8 @@
       <package>DataPool</package>
       <className>DataPool</className>
       <methodName>getRowsByIndex</methodName>
-      <methodSignature>getRowsByIndex($value, $indexedReturn=true)</methodSignature>
-      <fullMethod>getRowsByIndex($value, $indexedReturn=true)</fullMethod>
+      <methodSignature>getRowsByIndex($value)</methodSignature>
+      <fullMethod>getRowsByIndex($value)</fullMethod>
       <crap>5</crap>
       <complexity>5</complexity>
       <coverage>100</coverage>
@@ -59,19 +59,8 @@
       <package>DataPool</package>
       <className>DataPool</className>
       <methodName>getRowsByIndexCumul</methodName>
-      <methodSignature>getRowsByIndexCumul(&amp;$return, $key, $index, $indexedReturn)</methodSignature>
-      <fullMethod>getRowsByIndexCumul(&amp;$return, $key, $index, $indexedReturn)</fullMethod>
-      <crap>2</crap>
-      <complexity>2</complexity>
-      <coverage>100</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
-    <method>
-      <package>DataPool</package>
-      <className>DataPool</className>
-      <methodName>composeReturn</methodName>
-      <methodSignature>composeReturn($position)</methodSignature>
-      <fullMethod>composeReturn($position)</fullMethod>
+      <methodSignature>getRowsByIndexCumul(&amp;$return, $key, $index)</methodSignature>
+      <fullMethod>getRowsByIndexCumul(&amp;$return, $key, $index)</fullMethod>
       <crap>2</crap>
       <complexity>2</complexity>
       <coverage>100</coverage>
@@ -85,138 +74,6 @@
       <fullMethod>checkArrayElements()</fullMethod>
       <crap>3</crap>
       <complexity>3</complexity>
-      <coverage>100</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
-    <method>
-      <package>DataPool\implement</package>
-      <className>DataPoolImplements</className>
-      <methodName>__construct</methodName>
-      <methodSignature>__construct($definition = array(), $dataArray = array())</methodSignature>
-      <fullMethod>__construct($definition = array(), $dataArray = array())</fullMethod>
-      <crap>3</crap>
-      <complexity>3</complexity>
-      <coverage>100</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
-    <method>
-      <package>DataPool\implement</package>
-      <className>DataPoolImplements</className>
-      <methodName>levelizeArray</methodName>
-      <methodSignature>levelizeArray()</methodSignature>
-      <fullMethod>levelizeArray()</fullMethod>
-      <crap>3</crap>
-      <complexity>3</complexity>
-      <coverage>100</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
-    <method>
-      <package>DataPool\implement</package>
-      <className>DataPoolImplements</className>
-      <methodName>getReturnIndexes</methodName>
-      <methodSignature>getReturnIndexes()</methodSignature>
-      <fullMethod>getReturnIndexes()</fullMethod>
-      <crap>1</crap>
-      <complexity>1</complexity>
-      <coverage>100</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
-    <method>
-      <package>DataPool\implement</package>
-      <className>DataPoolImplements</className>
-      <methodName>setReturnIndexes</methodName>
-      <methodSignature>setReturnIndexes($returnIndexes = true)</methodSignature>
-      <fullMethod>setReturnIndexes($returnIndexes = true)</fullMethod>
-      <crap>1</crap>
-      <complexity>1</complexity>
-      <coverage>100</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
-    <method>
-      <package>DataPool\implement</package>
-      <className>DataPoolImplements</className>
-      <methodName>getReturnArray</methodName>
-      <methodSignature>getReturnArray()</methodSignature>
-      <fullMethod>getReturnArray()</fullMethod>
-      <crap>1</crap>
-      <complexity>1</complexity>
-      <coverage>100</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
-    <method>
-      <package>DataPool\implement</package>
-      <className>DataPoolImplements</className>
-      <methodName>setReturnArray</methodName>
-      <methodSignature>setReturnArray($returnArray)</methodSignature>
-      <fullMethod>setReturnArray($returnArray)</fullMethod>
-      <crap>1</crap>
-      <complexity>1</complexity>
-      <coverage>100</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
-    <method>
-      <package>DataPool\implement</package>
-      <className>DataPoolImplements</className>
-      <methodName>getDefinition</methodName>
-      <methodSignature>getDefinition()</methodSignature>
-      <fullMethod>getDefinition()</fullMethod>
-      <crap>1</crap>
-      <complexity>1</complexity>
-      <coverage>100</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
-    <method>
-      <package>DataPool\implement</package>
-      <className>DataPoolImplements</className>
-      <methodName>getDataArray</methodName>
-      <methodSignature>getDataArray()</methodSignature>
-      <fullMethod>getDataArray()</fullMethod>
-      <crap>1</crap>
-      <complexity>1</complexity>
-      <coverage>100</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
-    <method>
-      <package>DataPool\implement</package>
-      <className>DataPoolImplements</className>
-      <methodName>checkDefinition</methodName>
-      <methodSignature>checkDefinition()</methodSignature>
-      <fullMethod>checkDefinition()</fullMethod>
-      <crap>5</crap>
-      <complexity>5</complexity>
-      <coverage>100</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
-    <method>
-      <package>DataPool\implement</package>
-      <className>DataPoolImplements</className>
-      <methodName>checkDataArray</methodName>
-      <methodSignature>checkDataArray()</methodSignature>
-      <fullMethod>checkDataArray()</fullMethod>
-      <crap>3</crap>
-      <complexity>3</complexity>
-      <coverage>100</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
-    <method>
-      <package>DataPool\implement</package>
-      <className>DataPoolImplements</className>
-      <methodName>setDefinition</methodName>
-      <methodSignature>setDefinition($definition)</methodSignature>
-      <fullMethod>setDefinition($definition)</fullMethod>
-      <crap>1</crap>
-      <complexity>1</complexity>
-      <coverage>100</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
-    <method>
-      <package>DataPool\implement</package>
-      <className>DataPoolImplements</className>
-      <methodName>setDataArray</methodName>
-      <methodSignature>setDataArray($dataArray)</methodSignature>
-      <fullMethod>setDataArray($dataArray)</fullMethod>
-      <crap>1</crap>
-      <complexity>1</complexity>
       <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
@@ -289,17 +146,6 @@
     <method>
       <package>DataPool\implement</package>
       <className>DataPoolImplements</className>
-      <methodName>getActualLine</methodName>
-      <methodSignature>getActualLine()</methodSignature>
-      <fullMethod>getActualLine()</fullMethod>
-      <crap>1</crap>
-      <complexity>1</complexity>
-      <coverage>100</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
-    <method>
-      <package>DataPool\implement</package>
-      <className>DataPoolImplements</className>
       <methodName>offsetSet</methodName>
       <methodSignature>offsetSet($offset, $value)</methodSignature>
       <fullMethod>offsetSet($offset, $value)</fullMethod>
@@ -314,9 +160,9 @@
       <methodName>offsetExists</methodName>
       <methodSignature>offsetExists($offset)</methodSignature>
       <fullMethod>offsetExists($offset)</fullMethod>
-      <crap>1</crap>
+      <crap>2</crap>
       <complexity>1</complexity>
-      <coverage>100</coverage>
+      <coverage>0</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -325,9 +171,9 @@
       <methodName>offsetUnset</methodName>
       <methodSignature>offsetUnset($offset)</methodSignature>
       <fullMethod>offsetUnset($offset)</fullMethod>
-      <crap>1</crap>
+      <crap>2</crap>
       <complexity>1</complexity>
-      <coverage>100</coverage>
+      <coverage>0</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -336,6 +182,17 @@
       <methodName>offsetGet</methodName>
       <methodSignature>offsetGet($offset)</methodSignature>
       <fullMethod>offsetGet($offset)</fullMethod>
+      <crap>3.33</crap>
+      <complexity>3</complexity>
+      <coverage>66.67</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>DataPool\implement</package>
+      <className>DataPoolParentImplements</className>
+      <methodName>__construct</methodName>
+      <methodSignature>__construct($definition = array(), $dataArray = array())</methodSignature>
+      <fullMethod>__construct($definition = array(), $dataArray = array())</fullMethod>
       <crap>3</crap>
       <complexity>3</complexity>
       <coverage>100</coverage>
@@ -343,12 +200,166 @@
     </method>
     <method>
       <package>DataPool\implement</package>
-      <className>DataPoolImplements</className>
-      <methodName>getIndexPosition</methodName>
-      <methodSignature>getIndexPosition($offset)</methodSignature>
-      <fullMethod>getIndexPosition($offset)</fullMethod>
+      <className>DataPoolParentImplements</className>
+      <methodName>levelizeArray</methodName>
+      <methodSignature>levelizeArray()</methodSignature>
+      <fullMethod>levelizeArray()</fullMethod>
+      <crap>3</crap>
+      <complexity>3</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>DataPool\implement</package>
+      <className>DataPoolParentImplements</className>
+      <methodName>hasToReturnIndexes</methodName>
+      <methodSignature>hasToReturnIndexes()</methodSignature>
+      <fullMethod>hasToReturnIndexes()</fullMethod>
       <crap>1</crap>
       <complexity>1</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>DataPool\implement</package>
+      <className>DataPoolParentImplements</className>
+      <methodName>setReturnIndexes</methodName>
+      <methodSignature>setReturnIndexes($returnIndexes = true)</methodSignature>
+      <fullMethod>setReturnIndexes($returnIndexes = true)</fullMethod>
+      <crap>1</crap>
+      <complexity>1</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>DataPool\implement</package>
+      <className>DataPoolParentImplements</className>
+      <methodName>hasToReturnArray</methodName>
+      <methodSignature>hasToReturnArray()</methodSignature>
+      <fullMethod>hasToReturnArray()</fullMethod>
+      <crap>1</crap>
+      <complexity>1</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>DataPool\implement</package>
+      <className>DataPoolParentImplements</className>
+      <methodName>setReturnArray</methodName>
+      <methodSignature>setReturnArray($returnArray)</methodSignature>
+      <fullMethod>setReturnArray($returnArray)</fullMethod>
+      <crap>1</crap>
+      <complexity>1</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>DataPool\implement</package>
+      <className>DataPoolParentImplements</className>
+      <methodName>getDefinition</methodName>
+      <methodSignature>getDefinition()</methodSignature>
+      <fullMethod>getDefinition()</fullMethod>
+      <crap>1</crap>
+      <complexity>1</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>DataPool\implement</package>
+      <className>DataPoolParentImplements</className>
+      <methodName>getDataArray</methodName>
+      <methodSignature>getDataArray()</methodSignature>
+      <fullMethod>getDataArray()</fullMethod>
+      <crap>1</crap>
+      <complexity>1</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>DataPool\implement</package>
+      <className>DataPoolParentImplements</className>
+      <methodName>checkDefinition</methodName>
+      <methodSignature>checkDefinition()</methodSignature>
+      <fullMethod>checkDefinition()</fullMethod>
+      <crap>5</crap>
+      <complexity>5</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>DataPool\implement</package>
+      <className>DataPoolParentImplements</className>
+      <methodName>checkDataArray</methodName>
+      <methodSignature>checkDataArray()</methodSignature>
+      <fullMethod>checkDataArray()</fullMethod>
+      <crap>3</crap>
+      <complexity>3</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>DataPool\implement</package>
+      <className>DataPoolParentImplements</className>
+      <methodName>setDefinition</methodName>
+      <methodSignature>setDefinition($definition)</methodSignature>
+      <fullMethod>setDefinition($definition)</fullMethod>
+      <crap>1</crap>
+      <complexity>1</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>DataPool\implement</package>
+      <className>DataPoolParentImplements</className>
+      <methodName>setDataArray</methodName>
+      <methodSignature>setDataArray($dataArray)</methodSignature>
+      <fullMethod>setDataArray($dataArray)</fullMethod>
+      <crap>1</crap>
+      <complexity>1</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>DataPool\implement</package>
+      <className>DataPoolParentImplements</className>
+      <methodName>getActualLine</methodName>
+      <methodSignature>getActualLine()</methodSignature>
+      <fullMethod>getActualLine()</fullMethod>
+      <crap>1</crap>
+      <complexity>1</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>DataPool\implement</package>
+      <className>DataPoolParentImplements</className>
+      <methodName>composeReturn</methodName>
+      <methodSignature>composeReturn($position)</methodSignature>
+      <fullMethod>composeReturn($position)</fullMethod>
+      <crap>2</crap>
+      <complexity>2</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>DataPool\implement</package>
+      <className>DataPoolParentImplements</className>
+      <methodName>getIndexPosition</methodName>
+      <methodSignature>getIndexPosition($index)</methodSignature>
+      <fullMethod>getIndexPosition($index)</fullMethod>
+      <crap>1</crap>
+      <complexity>1</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>DataPool\implement</package>
+      <className>DataPoolParentImplements</className>
+      <methodName>combineReturn</methodName>
+      <methodSignature>combineReturn($position)</methodSignature>
+      <fullMethod>combineReturn($position)</fullMethod>
+      <crap>2</crap>
+      <complexity>2</complexity>
       <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>

@@ -255,7 +255,7 @@ class DataPoolTest extends \PHPUnit_Framework_TestCase {
     public function testGetReturnIndexed() {
         $dataPool  = $this->getDataPool();
         $this->assertAttributeEquals(true, 'returnIndexes', $dataPool);
-        $this->assertTrue($dataPool->getReturnIndexes());
+        $this->assertTrue($dataPool->hasToReturnIndexes());
     }
 
 
@@ -267,7 +267,7 @@ class DataPoolTest extends \PHPUnit_Framework_TestCase {
         $this->assertAttributeEquals(true, 'returnIndexes', $dataPool);
         $dataPool->setReturnIndexes(false);
         $this->assertAttributeEquals(false, 'returnIndexes', $dataPool);
-        $this->assertFalse($dataPool->getReturnIndexes());
+        $this->assertFalse($dataPool->hasToReturnIndexes());
     }
 
 
@@ -288,10 +288,10 @@ class DataPoolTest extends \PHPUnit_Framework_TestCase {
     public function testGetReturnArray() {
         $dataPool  = $this->getDataPool();
         $this->assertAttributeEquals(true, 'returnArray', $dataPool);
-        $this->assertTrue($dataPool->getReturnArray());
+        $this->assertTrue($dataPool->hasToReturnArray());
         $dataPool->setReturnArray(false);
         $this->assertAttributeEquals(false, 'returnArray', $dataPool);
-        $this->assertFalse($dataPool->getReturnArray());
+        $this->assertFalse($dataPool->hasToReturnArray());
     }
 
 
@@ -337,9 +337,11 @@ class DataPoolTest extends \PHPUnit_Framework_TestCase {
      */
     public function testGetRowsByIndexIndexed() {
         $dataPool  = $this->getDataPool();
+        $dataPool->setReturnIndexes(true);
         $arrResult = $dataPool->getRowsByIndex('Tes');
         $this->assertCount(3, $arrResult);
         $this->assertArrayHasKey('Test_2', $arrResult);
+        $this->assertEquals('2.1', $arrResult['Test_2']['VALUE1']);
     }
 
     /**
@@ -347,7 +349,8 @@ class DataPoolTest extends \PHPUnit_Framework_TestCase {
      */
     public function testGetRowsByIndexNotIndexed() {
         $dataPool  = $this->getDataPool();
-        $arrResult = $dataPool->getRowsByIndex('Tes', false);
+        $dataPool->setReturnIndexes(false);
+        $arrResult = $dataPool->getRowsByIndex('Tes');
         $this->assertCount(3, $arrResult);
         $this->assertArrayNotHasKey('Test_2', $arrResult);
         $this->assertEquals('2.1', $arrResult[1][0]);
@@ -360,6 +363,21 @@ class DataPoolTest extends \PHPUnit_Framework_TestCase {
         $dataPool  = new \DataPool\DataPool(array('a'), array(array(53), array(23), array(53)));
         $arrResult = $dataPool->getRowsByIndex(2);
         $this->assertCount(1, $arrResult);
+    }
+
+    /**
+     * @depends test__construct
+     */
+    public function testRowsOnUniqueArray() {
+        $dataPool  = $this->getDataPool();
+        $dataPool->setReturnIndexes(true);
+        $dataPool->setReturnArray(true);
+        $arrResult = $dataPool->getRowsByIndex('Test_2');
+        print_r($arrResult);
+        $this->assertCount(1, $arrResult);
+        $this->assertCount(2, $arrResult['Test_2']);
+        $this->assertArrayNotHasKey('Test_2', $arrResult);
+        $this->assertEquals('2.1', $arrResult[0][0]);
     }
 
     /**
