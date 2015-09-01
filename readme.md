@@ -5,7 +5,9 @@ Introduction
 ------------
 This library is intended to be used with PHPUnit tool. DataPool is an iterable object which can be
 returned to a standard @dataprovider tag or it can be used to get specific datasets from a big datapool.
-It allows
+
+It allows to keep low weight indexed data arrays separated from tests logic and can return classified tests
+attending to its array index
 
 Installation
 ------------
@@ -22,10 +24,8 @@ The main use pourpose is via heritage, the final class will only contains a defi
 index and a dataArray, we can instance it into our test case as a dataprovider or as
 a normal object which vill provide us with predefined test cases.
 
-It allows to keep low weight indexed data arrays separated from tests logic and returns classified tests
-attending to its array index
 
-Custom dataPool Example:
+### Custom dataPool Example: ###
 
         /**
          * Contacts datapool file for Testing pourposes
@@ -63,7 +63,9 @@ this behaviour with the function setReturnIndexes(false|true), by default setted
 Public array $dataArray will contain an array with all possible tests datasets, it can
 be classified by index to allow returning smaller portions of this dataArray via getRowsByIndex($index).
 
-In our tests file:
+
+###Tests file example:###
+
 
     namespace Example\tests\src;
 
@@ -88,9 +90,51 @@ In our tests file:
             return self::$dataPool;
         }
 
+
 Function getDataPool is a dataprovider which sets and returns an iterable object. It
 can be used in any common case as standard @dataprovider function's return, it's
-configured to avoid any index usage.
+configured to avoid any index usage as a usual PHPUnit dataprovider.
+
+We have set __setReturnArray(false)__ in order to get each dataset value as different test function parameter.
+
+If __setReturnIndexes(false)__ we avoid any returned dataset indexation with $definition
+values (array_combine)
+
+        public function getDataPoolAsArray() {
+            $dataPool = $this->getDataPool();
+            $dataPool->setReturnArray(true);
+            $dataPool->setReturnIndexes(true);
+
+            return $dataPool->getRowsByIndex('Case1');
+        }
+
+Function __getDataPoolAsArray()__ returns an iterable dataset from previously instanced
+dataProvider object. We want to get only test cases indexed by "Case" so we must
+return the result array from __getRowsByIndex('Case')__ function.
+
+ We have changed __setReturnArray(true)__ in order to get each dataset fields encapsulated in an array, with
+__setReturnIndexes(true)__ we force the indexation of this array with $definition
+values (array_combine)
+
+        /**
+         * @dataProvider getDataPoolAsArray
+         */
+        public function testArrayDataProviderInsert($regData) {
+            $contModel = new \Example\src\exampleContactsModel();
+            $expected  = $regData['result'];
+            unset($regData['result']);
+
+            $result = $contModel->insert($regData);
+            if ($result === false) {
+                $this->assertEquals($expected, $result);
+            } else {
+                $this->assertTrue(is_integer($result));
+            }
+        }
+
+As in testArrayDataProviderInsert with data encapsulated as array we can easily perform tests on ORM objects or avoid
+large parameters lists in tests with many data values.
+
 
         /**
          * @dataProvider getDataPool
@@ -110,42 +154,7 @@ configured to avoid any index usage.
             }
         }
 
+    }// End exampleContactsModelTest
+
 Function testPureDataProviderInsert makes assertions using ContactsDataPool object
 as a usual dataprovider array.
-
-
-
-        public function getDataPoolAsArray() {
-            $dataPool = $this->getDataPool();
-            $dataPool->setReturnArray(true);
-            $dataPool->setReturnIndexes(true);
-
-            return $dataPool->getRowsByIndex('Case1');
-        }
-
-Function getDataPoolAsArray returns an iterable dataset from previously instanced
-dataProvider object. We need to get only test cases indexed by "Case" so we must
-return the result of getRowsByIndex function (an array). We have changed setReturnArray
-to TRUE in order to get each dataset fields encapsulated in an array, with
-setReturnIndexes to TRUE we force the indexation of this array with $definition
-values (array_combine)
-
-With data encapsulated as array we can easily perform tests on ORM objects or avoid
-large parameters lists in tests with many data values. As in next function
-
-        /**
-         * @dataProvider getDataPoolAsArray
-         */
-        public function testArrayDataProviderInsert($regData) {
-            $contModel = new \Example\src\exampleContactsModel();
-            $expected  = $regData['result'];
-            unset($regData['result']);
-
-            $result = $contModel->insert($regData);
-            if ($result === false) {
-                $this->assertEquals($expected, $result);
-            } else {
-                $this->assertTrue(is_integer($result));
-            }
-        }
-    }// End exampleContactsModelTest
