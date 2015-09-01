@@ -6,8 +6,8 @@ Introduction
 This library is intended to be used with PHPUnit tool. DataPool is an iterable object which can be
 returned to a standard @dataprovider tag or it can be used to get specific datasets from a big datapool.
 
-It allows to keep low weight indexed data arrays separated from tests logic and can return classified tests
-attending to its array index
+It allows to keep low weight indexed array values separated from tests logic and can return specific datasets
+attending to its dataset index
 
 Installation
 ------------
