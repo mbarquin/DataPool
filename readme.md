@@ -91,7 +91,7 @@ be classified by index to allow returning smaller portions of this dataArray via
         }
 
 
-Function getDataPool is a dataprovider which sets and returns an iterable object. It
+Function __getDataPool__ is a dataprovider which sets and returns an iterable object. It
 can be used in any common case as standard @dataprovider function's return, it's
 configured to avoid any index usage as a usual PHPUnit dataprovider.
 
@@ -101,7 +101,9 @@ We have set:
 
 __setReturnIndexes(false)__ to avoid returned dataset indexation with $definition
 values (array_combine)
+
 <br><br><br>
+
         public function getDataPoolAsArray() {
             $dataPool = $this->getDataPool();
             $dataPool->setReturnArray(true);
@@ -120,7 +122,9 @@ return the result array from __getRowsByIndex('Case')__ function.
 
 __setReturnIndexes(true)__ to force the indexation of each returned dataset with $definition
 values (array_combine)
+
 <br><br><br>
+
         /**
          * @dataProvider getDataPoolAsArray
          */
@@ -139,6 +143,7 @@ values (array_combine)
 
 As in testArrayDataProviderInsert with data encapsulated as array we can easily perform tests on ORM objects or avoid
 large parameters lists in tests with many data values.
+
 <br><br><br>
 
         /**
