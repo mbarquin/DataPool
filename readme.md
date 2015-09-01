@@ -56,9 +56,9 @@ a normal object which vill provide us with predefined test cases.
 
         }// End ContactsDataPool.
 
-Protected array "$definition" is intended to avoid data indexes being duplicated
-along all defined test cases. Datasets can be returned merged with this indexes, we can set up
-this behaviour with the function setReturnIndexes(false|true), by default setted to FALSE.
+Protected array $definition is defined to avoid data indexes being duplicated
+along all defined datasets. Datasets can be returned with this $definition values as indexes, we can set up
+this behaviour with the function __setReturnIndexes(false|true)__, by default setted to FALSE.
 
 Public array $dataArray will contain an array with all possible tests datasets, it can
 be classified by index to allow returning smaller portions of this dataArray via getRowsByIndex($index).
@@ -95,9 +95,11 @@ Function getDataPool is a dataprovider which sets and returns an iterable object
 can be used in any common case as standard @dataprovider function's return, it's
 configured to avoid any index usage as a usual PHPUnit dataprovider.
 
-We have set __setReturnArray(false)__ in order to get each dataset value as different test function parameter.
+We have set:
 
-If __setReturnIndexes(false)__ we avoid any returned dataset indexation with $definition
+ __setReturnArray(false)__ in order to get each dataset value as different test function parameter.
+
+__setReturnIndexes(false)__ to avoid returned dataset indexation with $definition
 values (array_combine)
 
         public function getDataPoolAsArray() {
@@ -105,15 +107,18 @@ values (array_combine)
             $dataPool->setReturnArray(true);
             $dataPool->setReturnIndexes(true);
 
-            return $dataPool->getRowsByIndex('Case1');
+            return $dataPool->getRowsByIndex('Case');
         }
 
 Function __getDataPoolAsArray()__ returns an iterable dataset from previously instanced
 dataProvider object. We want to get only test cases indexed by "Case" so we must
 return the result array from __getRowsByIndex('Case')__ function.
 
- We have changed __setReturnArray(true)__ in order to get each dataset fields encapsulated in an array, with
-__setReturnIndexes(true)__ we force the indexation of this array with $definition
+ We have changed:
+
+ __setReturnArray(true)__ in order to get each dataset fields encapsulated in an array.
+
+__setReturnIndexes(true)__ to force the indexation of each returned dataset with $definition
 values (array_combine)
 
         /**
