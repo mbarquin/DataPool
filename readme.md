@@ -97,11 +97,11 @@ configured to avoid any index usage as a usual PHPUnit dataprovider.
 
 We have set:
 
- __setReturnArray(false)__ in order to get each dataset value as different test function parameter.
+ __setReturnArray(false)__ in order to get each dataset value as a different test function parameter.
 
 __setReturnIndexes(false)__ to avoid returned dataset indexation with $definition
 values (array_combine)
-
+<br><br><br>
         public function getDataPoolAsArray() {
             $dataPool = $this->getDataPool();
             $dataPool->setReturnArray(true);
@@ -120,7 +120,7 @@ return the result array from __getRowsByIndex('Case')__ function.
 
 __setReturnIndexes(true)__ to force the indexation of each returned dataset with $definition
 values (array_combine)
-
+<br><br><br>
         /**
          * @dataProvider getDataPoolAsArray
          */
@@ -139,7 +139,7 @@ values (array_combine)
 
 As in testArrayDataProviderInsert with data encapsulated as array we can easily perform tests on ORM objects or avoid
 large parameters lists in tests with many data values.
-
+<br><br><br>
 
         /**
          * @dataProvider getDataPool
