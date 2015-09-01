@@ -3,10 +3,9 @@ DataPool
 
 Introduction
 ------------
-This library is intended to be used with PHPUnit tool. It provides a little
-more control on dataproviders, allowing use the DataPool as iterable object
-for standard @dataprovider tag or to be used in individual tests for getting
-all necessary data sets.
+This library is intended to be used with PHPUnit tool. DataPool is an iterable object which can be
+returned to a standard @dataprovider tag or it can be used to get specific datasets from a big datapool.
+It allows
 
 Installation
 ------------
@@ -14,44 +13,57 @@ Installation
 You can install the component in the following ways:
 
 * Use the official Github repository (https://github.com/mbarquin/DataPool)
-* Use composer : 
+* Use composer :
 
 Usage
 -----
 
-The main use pourpose is via heritage, the final class will only containd definition
-index and dataArray, and we can require it into our test case as dataprovider or as
+The main use pourpose is via heritage, the final class will only contains a definition
+index and a dataArray, we can instance it into our test case as a dataprovider or as
 a normal object which vill provide us with predefined test cases.
 
-DataPool Example:
+It allows to keep low weight indexed data arrays separated from tests logic and returns classified tests
+attending to its array index
 
-    /**
-     * Contacts datapool file for Testing pourposes
-     */
-    class ContactsDataPool extends \DataPool\DataPool
-    {
+Custom dataPool Example:
 
         /**
-         * @var array Datapool definition
+         * Contacts datapool file for Testing pourposes
          */
-        protected $definition = array(
+        class ContactsDataPool extends \DataPool\DataPool
+        {
+
+            /**
+             * @var array Datapoolm fields definition to be merged with data
+             */
+            protected $definition = array(
                 'name',
                 'surname',
                 'phone',
                 'result'
             );
 
-        public $dataArray = array(
-            'Test1' => array('Jack', 'Travis', '555999666', true),
-            'Test2' => array('Mathew', 'Jones', '555888555', true),
-            'NameSurnameEmpty' => array('', '', '555666555', false),
-            'PhoneToLong' => array('Gregor', 'Jones', '5550005518899', false)
-        );
+            /**
+             * @var array Data array to be merged with definition and returned to tests
+             */
+            public $dataArray = array(
+                'Test1' => array('Jack', 'Travis', '555999666', true),
+                'Test2' => array('Mathew', 'Jones', '555888555', true),
+                'Test3.NameSurnameEmpty' => array('', '', '555666555', false),
+                'TestCase1.PhoneToLong' => array('Gregor', 'Jones', '5550005518899', false),
+                'TestCase2.NoName' => array('', 'Jones', '5550005518899', false)
+            );
 
-    }
+        }// End ContactsDataPool.
 
+Protected array "$definition" is intended to avoid data indexes being duplicated
+along all defined test cases. Datasets can be returned merged with this indexes, we can set up
+this behaviour with the function setReturnIndexes(false|true), by default setted to FALSE.
 
-In our test case:
+Public array $dataArray will contain an array with all possible tests datasets, it can
+be classified by index to allow returning smaller portions of this dataArray via getRowsByIndex($index).
+
+In our tests file:
 
     namespace Example\tests\src;
 
@@ -59,62 +71,81 @@ In our test case:
 
         static private $dataPool = null;
 
-
         /**
          * Static instance of ContactsDataPool
-         * 
+         *
          * @return \Example\tests\files\ContactsDataPool
          */
         public function getDataPool() {
-            if(is_object(self::$dataPool) === false) {
+            // If not instanciated yet...
+            if (is_object(self::$dataPool) === false) {
                 self::$dataPool = new \Example\tests\files\ContactsDataPool();
             }
+            // Avoid mixing behaviors during tests
+            self::$dataPool->setReturnArray(false);
+            self::$dataPool->setReturnIndexes(false);
+
             return self::$dataPool;
         }
 
-
-        public function testOneInsertOK() {
-            $dataPool        = $this->getDataPool();
-            $contModel       = new \Example\src\exampleContactsModel();
-
-            $testInsertArray = $dataPool['Test1'];
-            unset($testInsertArray['result']);
-
-            $result          = $contModel->insert($testInsertArray);
-
-            $this->assertTrue(is_integer($result));
-        }
+Function getDataPool is a dataprovider which sets and returns an iterable object. It
+can be used in any common case as standard @dataprovider function's return, it's
+configured to avoid any index usage.
 
         /**
          * @dataProvider getDataPool
          */
-        public function pureDataProviderInsert($name, $surname, $phone, $expected) {
+        public function testPureDataProviderInsert($name, $surname, $phone, $expected) {
+            $contModel      = new \Example\src\exampleContactsModel();
+
             $reg['name']    = $name;
             $reg['surname'] = $surname;
             $reg['phone']   = $phone;
 
             $result = $contModel->insert($reg);
-            if($result === false) {
+            if ($result === false) {
                 $this->assertEquals($expected, $result);
             } else {
                 $this->assertTrue(is_integer($result));
             }
         }
 
+Function testPureDataProviderInsert makes assertions using ContactsDataPool object
+as a usual dataprovider array.
+
+
+
+        public function getDataPoolAsArray() {
+            $dataPool = $this->getDataPool();
+            $dataPool->setReturnArray(true);
+            $dataPool->setReturnIndexes(true);
+
+            return $dataPool->getRowsByIndex('Case1');
+        }
+
+Function getDataPoolAsArray returns an iterable dataset from previously instanced
+dataProvider object. We need to get only test cases indexed by "Case" so we must
+return the result of getRowsByIndex function (an array). We have changed setReturnArray
+to TRUE in order to get each dataset fields encapsulated in an array, with
+setReturnIndexes to TRUE we force the indexation of this array with $definition
+values (array_combine)
+
+With data encapsulated as array we can easily perform tests on ORM objects or avoid
+large parameters lists in tests with many data values. As in next function
 
         /**
          * @dataProvider getDataPoolAsArray
          */
-        public function arrayDataProviderInsert($regData) {
-            $expected = $regData['result'];
+        public function testArrayDataProviderInsert($regData) {
+            $contModel = new \Example\src\exampleContactsModel();
+            $expected  = $regData['result'];
             unset($regData['result']);
 
             $result = $contModel->insert($regData);
-            if($result === false) {
+            if ($result === false) {
                 $this->assertEquals($expected, $result);
             } else {
                 $this->assertTrue(is_integer($result));
             }
         }
-    }
- 
+    }// End exampleContactsModelTest
