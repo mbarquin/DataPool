@@ -102,7 +102,7 @@ We have set:
 __setReturnIndexes(false)__ to avoid returned dataset indexation with $definition
 values (array_combine)
 
-<br><br><br>
+<br><br>
 
         public function getDataPoolAsArray() {
             $dataPool = $this->getDataPool();
@@ -123,7 +123,7 @@ return the result array from __getRowsByIndex('Case')__ function.
 __setReturnIndexes(true)__ to force the indexation of each returned dataset with $definition
 values (array_combine)
 
-<br><br><br>
+<br><br>
 
         /**
          * @dataProvider getDataPoolAsArray
@@ -144,7 +144,7 @@ values (array_combine)
 As in __testArrayDataProviderInsert__, with data encapsulated as array we can easily perform tests on ORM objects or avoid
 large parameters lists in tests with many data values.
 
-<br><br><br>
+<br><br>
 
         /**
          * @dataProvider getDataPool
