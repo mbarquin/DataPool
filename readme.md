@@ -164,7 +164,7 @@ large parameters lists in tests with many data values.
             }
         }
 
-    }// End exampleContactsModelTest
+    }// End exampleContactsModelTest.
 
 Function testPureDataProviderInsert makes assertions using ContactsDataPool object
 as a usual dataprovider array.
