@@ -95,7 +95,7 @@ class exampleContactsModelTest extends \PHPUnit_Framework_TestCase {
         $dataPool = $this->getDataPool();
         $dataPool->setReturnArray(true);
         $dataPool->setReturnIndexes(true);
-        var_dump($dataPool->getRowsByIndex('Case'));
+        
         return $dataPool->getRowsByIndex('Case');
     }
 
