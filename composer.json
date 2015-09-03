@@ -1,6 +1,6 @@
 {
     "name": "mbarquin/datapool",
-    "description": "PHP DataPool object, PHPUnit tests dataprovider",
+    "description": "PHP DataPool, data provider object for PHPUnit dataprovider tag",
     "require": {
         "php": ">=5.3"
     },
