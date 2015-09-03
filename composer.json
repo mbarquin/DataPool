@@ -1,6 +1,6 @@
 {
-    "name": "mbarquin/DataPool",
-    "description": "Tests data provider",
+    "name": "mbarquin/datapool",
+    "description": "PHP DataPool object, PHPUnit tests dataprovider",
     "require": {
         "php": ">=5.3"
     },
@@ -10,6 +10,10 @@
         "Halleck45/PhpMetrics" : "@stable"
     },
     "autoload": {
-        "psr-4": { "DataPool\\" : "src/", "TestsDataPool\\" : "tests/", "Example\\" : "example/" }
+        "psr-4": { "DataPool\\" : "src/" }
+    },
+    "autoload-dev": {
+        "psr-4": { "TestsDataPool\\" : "tests/", "Example\\" : "example/" }
     }
+
 }

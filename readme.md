@@ -15,7 +15,7 @@ Installation
 
 You can install the component in the following ways:
 
-* Use the official Github repository (https://github.com/mbarquin/DataPool)
+* Use the official Github repository (https://github.com/mbarquin/datapool)
 * Use composer :
 
 Usage
