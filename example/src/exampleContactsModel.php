@@ -8,7 +8,7 @@
  * @category   DataPool
  * @package    DataPool
  * @author     Moises Barquin <moises.barquin@gmail.com>
- * @version    SVN: $Id$
+ * @version    GIT: $Id$
  */
 namespace Example\src;
 

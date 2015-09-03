@@ -13,7 +13,7 @@
  * @subpackage DataPool
  * @author     Moises Barquin <moises.barquin@gmail.com>
  * @copyright  (c) 2015, Moisés Barquín <moises.barquin@gmail.com>
- * @version    SVN: $Id$
+ * @version    GIT: $Id$
  */
 
 namespace DataPool;
